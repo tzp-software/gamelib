@@ -1,0 +1,5 @@
+{
+  "name": "gamelib", 
+  "license": "New BSD License", 
+  "description": "small python game library for small low memory or embedded devices"
+}

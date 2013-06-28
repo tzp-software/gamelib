@@ -1,0 +1,7 @@
+MANIFEST.in
+README
+setup.py
+gamelib/gamelib.egg-info/PKG-INFO
+gamelib/gamelib.egg-info/SOURCES.txt
+gamelib/gamelib.egg-info/dependency_links.txt
+gamelib/gamelib.egg-info/top_level.txt
