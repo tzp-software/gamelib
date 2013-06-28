@@ -1,4 +1,0 @@
-lxml
-
-[docs2rtf]
-ootools

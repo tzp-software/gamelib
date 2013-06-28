@@ -1,3 +1,0 @@
-"""
-Calibre scripts directory
-"""
