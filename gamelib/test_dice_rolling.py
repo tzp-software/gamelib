@@ -1,19 +1,34 @@
+'''
+some dice rolling simulations
+'''
+
 import sys
 import time
 import random
 from score import Score
 from dice import Roll
-#def roll(num):
-#    return [range(num) for num in random.randrange(1,7)]
+
+
+def clear_screen():
+    ' clear all text from the screen'
+    x = '\n'*50
+    print x
+    time.sleep(1)
+
+
+    
 def player_say(text):
+    ' put a convenient PLAYER label over text printed'
     print 'PLAYER:\n'
     print text
     print
 
 def roll(num):
+    'Roll object factory justs returns a Roll object' 
     return Roll(num)
 
 def count_score(scoredRoll):
+    'return an int of the number of numbers in SCORE'
     count = 0
     s = str(scoredRoll)
     for char in s:
@@ -25,6 +40,7 @@ def count_score(scoredRoll):
     return count
 
 def get_number_diff(num1, num2):
+    ' give the difference of two numbers, they must be ints(or able to be ints)'
     if num1 >= num2:
         rtn = num1 - num2
     else:
@@ -32,12 +48,18 @@ def get_number_diff(num1, num2):
     return rtn
 
 def choose_to_stay(heldItems):
+    ' give a tuple of lists and decied if the player will stay or not'
     if len(heldItems) >= 6:
         return True
     else:
         return False
 
 def roll_dice(num=6, combos=None):
+    ''' give an optional number of dice to roll(default 6)
+        and a list of lists of numbers from rolled dice(also optional)
+        and this will roll then until it either stays or quits, gathering 
+        the held dice and returning them as it goes
+    '''
     if not combos:
         heldCombos = []
     else:
@@ -80,6 +102,8 @@ def roll_dice(num=6, combos=None):
 
 
 def main():
+    'make sure to split the arguments before sending them to roll_dice'
+    clear_screen()
     x = roll_dice()
     while x:
         x = roll_dice(x[0],x[1])
