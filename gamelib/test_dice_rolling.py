@@ -5,6 +5,11 @@ from score import Score
 from dice import Roll
 #def roll(num):
 #    return [range(num) for num in random.randrange(1,7)]
+def player_say(text):
+    print 'PLAYER:\n'
+    print text
+    print
+
 def roll(num):
     return Roll(num)
 
@@ -56,11 +61,11 @@ def roll_dice(num=6, combos=None):
         print 'Or to risk it and roll again.....'
         time.sleep(2)
         if choose_to_stay(heldCombos):
-            print 'I will stay and keep \n{}'.format(heldCombos)
+            player_say('I will stay and keep \n{}'.format(heldCombos))
             print 'Turn Over'
             return False
         else:
-            print 'I will keep rolling'
+            player_say('I will keep rolling')
             time.sleep(2)
     else:
         print 'you held nothing??? Turn over'
