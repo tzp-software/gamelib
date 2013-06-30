@@ -162,9 +162,6 @@ class  Roll(CallableRoll):
         #    return self.currentRoll[idx]
         #else:
         #    raise IndexError
-    def __len__(self):
-        return len(self.currentRoll)
-
     def get_rolled_num(self):
         return self.dieNum
 

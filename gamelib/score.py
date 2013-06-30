@@ -2,54 +2,7 @@
     gamelib.score.py
 '''
 #from dice import Roll as RollCounter
-from UserDict import UserDict
 import dice
-
-class RollCounter(dict): 
-    _nums = ['ones','twos','threes','fours','fives','sixs']
-
-    def __init__(self,roll=None):
-        super(dict,self).__init__()
-        self.reset_counts()
-        try:
-            if roll is not None:
-                self.roll = roll[:]
-                self.count_roll(roll)
-        except ValueError:
-            self.roll = roll[:]
-
-    def reset_counts(self):
-        for num in RollCounter._nums:
-            self[num] = 0
-
-    def count_roll(self, roll):
-        self.roll = roll[:]
-        self.reset_counts()
-        for num in range(len(roll)):
-            if int(roll[num]) == 1:
-                self['ones'] += 1
-            if int(roll[num]) == 2:
-                self['twos'] += 1
-            if int(roll[num]) == 3:
-                self['threes'] += 1
-            if int(roll[num]) == 4: 
-                self['fours'] += 1
-            if int(roll[num]) == 5:
-                self['fives'] += 1
-            if int(roll[num]) == 6:
-                self['sixs'] += 1
-            else:
-                raise ValueError('need an int between 1 and 6, but i got {}'.format(roll[num]))
-
-
-    def get_counts(self, roll=None):
-        if roll is not None:
-            self.count_roll(roll)
-        return self
-
-
-
-
 
 def make_roll(counts):
     roll = []
@@ -98,14 +51,6 @@ def test():
 
 class Score(object): 
     def __init__(self,rollCounts):
-        self.new_roll(rollCounts)
-        #self.dieNum = len(rollCounts.values())
-        #self.used = []
-        #self.roll = make_roll(rollCounts)
-        #self.counts = rollCounts.copy()
-        #self.set_scores()
-
-    def new_roll(self, rollCounts):
         self.dieNum = len(rollCounts.values())
         self.used = []
         self.roll = make_roll(rollCounts)
@@ -168,7 +113,7 @@ class Score(object):
         if len(self.scores) > 0:
             return tuple(self.scores)
         else:
-            return tuple(None)
+            return None
 
 
 
